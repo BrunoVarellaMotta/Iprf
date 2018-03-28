@@ -58,18 +58,18 @@ public double impostoDevido() {
 	double baseDeCalculo = totRendimentos - contrPrev;
 		if (idade < 65) {
 			if (nroDep <= 2) {
-				impostoDevido = (baseDeCalculo * 0.975);
+				impostoDevido = (baseDeCalculo * 0.025);
 			} else if (nroDep > 3 && nroDep < 6) {
-				impostoDevido = (baseDeCalculo * 0.95);
+				impostoDevido = (baseDeCalculo * 0.05);
 			} else {
-				impostoDevido = (baseDeCalculo * 0.9);
+				impostoDevido = (baseDeCalculo * 0.1);
 			}
 		} else if (nroDep <= 2) {
-			impostoDevido = (baseDeCalculo * 0.97);
+			impostoDevido = (baseDeCalculo * 0.03);
 		} else if (nroDep > 3 && nroDep < 6) {
-			impostoDevido = (baseDeCalculo * 0.955);
+			impostoDevido = (baseDeCalculo * 0.045);
 		} else {
-			impostoDevido = (baseDeCalculo * 0.94);
+			impostoDevido = (baseDeCalculo * 0.06);
 		}
 		return impostoDevido;
 	}
