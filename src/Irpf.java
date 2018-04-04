@@ -56,21 +56,28 @@ public String getCpf() {
 
 public double impostoDevido() {	
 	double baseDeCalculo = totRendimentos - contrPrev;
+	double desconto = 0;
 		if (idade < 65) {
 			if (nroDep <= 2) {
-				impostoDevido = (baseDeCalculo * 0.025);
+				desconto = (baseDeCalculo * 0.025);
 			} else if (nroDep > 3 && nroDep < 6) {
-				impostoDevido = (baseDeCalculo * 0.05);
+				desconto = (baseDeCalculo * 0.05);
 			} else {
-				impostoDevido = (baseDeCalculo * 0.1);
+				desconto = (baseDeCalculo * 0.1);
 			}
 		} else if (nroDep <= 2) {
-			impostoDevido = (baseDeCalculo * 0.03);
+			desconto = (baseDeCalculo * 0.03);
 		} else if (nroDep > 3 && nroDep < 6) {
-			impostoDevido = (baseDeCalculo * 0.045);
+			desconto = (baseDeCalculo * 0.045);
 		} else {
-			impostoDevido = (baseDeCalculo * 0.06);
+			desconto = (baseDeCalculo * 0.06);
 		}
+		
+	if (baseDeCalculo <= 10000) {
+		impostoDevido = 0;
+	} else if (baseDeCalculo > 10000 && baseDeCalculo < 20000) {
+		impostoDevido = 0.15 * (baseDeCalculo - 10000);
+	} else impostoDevido = (0.15 * (baseDeCalculo - 10000)) + 0.3 * (baseDeCalculo - 20000);
 		return impostoDevido;
 	}
 }
