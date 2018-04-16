@@ -60,7 +60,7 @@ public double impostoDevido() {
 		if (idade < 65) {
 			if (nroDep <= 2) {
 				desconto = (baseDeCalculo * 0.025);
-			} else if (nroDep > 3 && nroDep < 6) {
+			} else if (nroDep >= 3 && nroDep < 6) {
 				desconto = (baseDeCalculo * 0.05);
 			} else {
 				desconto = (baseDeCalculo * 0.1);
